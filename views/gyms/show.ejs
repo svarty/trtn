@@ -1,0 +1,88 @@
+<% include ../partials/header %>
+
+<div class="ui main text container raised segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted segment">
+            <div class="ui center aligned container">
+                <div class="ui huge inverted header"> <%= gym.name.toUpperCase() %> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui top attached">
+        <div class="item">
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var uluru = {lat: <%= gym.lat %>, lng: <%= gym.lng %>};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 16,
+                        center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map
+                    });
+                };
+            </script>
+
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGKhZBM6l_C1-7ICt0t5GbYEkyt6EvZtA&callback=initMap">
+        </script>
+
+
+
+<!--
+            <div class="flex-img-box">
+                <div class="ui small centered images">
+                    <img src="https://scontent.fbeg2-1.fna.fbcdn.net/v/t1.0-9/11061246_668433066593921_4363408236679185896_n.jpg?oh=e5bc4b11375ade634051b6d740b3f6ad&oe=5A11234F">
+                    <img src="https://scontent.fbeg2-1.fna.fbcdn.net/v/t1.0-9/18681_668433349927226_95732923422264592_n.jpg?oh=670babde32f417f458298f0b8140d925&oe=5A0CBCC8">
+                    <img src="https://scontent.fbeg2-1.fna.fbcdn.net/v/t1.0-9/1976940_491461007624462_363585387_n.jpg?oh=ba53375bafe6ed3166f72950fe2fb40d&oe=59CA7CD4">
+                    <img src="https://scontent.fbeg2-1.fna.fbcdn.net/v/t1.0-9/11061246_668433066593921_4363408236679185896_n.jpg?oh=e5bc4b11375ade634051b6d740b3f6ad&oe=5A11234F">
+                </div>
+            </div>
+        -->
+
+
+
+        <div class="description">
+            <div class="space-small"></div>
+            <p> <span> <i class="call icon"></i> Broj telefona: </span><%= gym.phone %> </p>
+            <p> <span> <i class="map signs icon"></i> Ulica i broj: </span> <%= gym.street%> <%= gym.area %> </p>
+            <p> <span> <i class="marker icon"></i> Grad: </span><%= gym.city %> </p>
+            <div class="space-small"></div>
+        </div>
+
+
+
+    </div>
+
+    <a class="ui orange basic button" href="/index/<%= gym._id %>/edit"> Edit </a>  
+    <form id="delete" action="/index/<%= gym._id %>?_method=DELETE" method="POST">
+        <button class="ui red basic button">Delete</button>
+
+    </form>
+
+    <div class="text-right hidden">
+    <a class="ui red basic button" href="/index/<%=gym._id%>/comments/new">Add New Comment</a>
+    </div>
+
+</div>
+
+</div>
+
+ <hr>
+    <% gym.comments.forEach(function(comment){ %>
+    <div class="ui container">
+        <div class="column">
+            <strong><%=comment.author%></strong>
+            <p>
+                <%= comment.text %> 
+            </p>
+        </div>
+    </div>
+    <% }) %>
+
+
+
+<% include ../partials/footer %>

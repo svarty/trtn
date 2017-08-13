@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
+
+    <link  rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+
+    <script src="/javascript/script.js"></script>
+
+    <title>Gde trenirati</title>
+</head>
+<body>
+
+
+    <div class="ui fixed inverted menu">
+        <div class = "ui container nav-b">
+            <div class ="header item"> <i class="heartbeat icon"></i>GDE TRENIRATI</div>
+            <a href="/" class="item">Home</a>
+            <a href="/index/new" class="item">New Gym</a>
+
+            <div class="right menu">
+  <% if (!currentUser) { %>
+                        
+                        <a href="/register" class="ui item">
+              Sing In
+            </a>
+            <a href="/login" class="ui item">
+              Log In
+            </a>
+                     <%} else {  %>
+                    <a href='#' class="ui item">Signed In As <%= currentUser.username %></a>
+                    <a href="/logout" class="ui item">Logout</a>
+                    <% }  %>
+            
+    
+      </div>
+  </div>
+
+</div>
+
+<div class="space"></div>

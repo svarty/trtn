@@ -1,0 +1,44 @@
+i.icon {
+    font-size: 2em;
+}
+
+
+.space{
+    margin-top: 7em;
+}
+
+.space-small {
+    margin-top: 2em;
+}
+
+
+#delete {
+    display: inline-block;
+}
+
+.description p{
+    font-size: 120%;
+
+}
+
+.description span{
+    font-weight: 700;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+}
+
+
+.flex-img-box {
+    display: flex;
+    flex: 1;   
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.hidden {
+    display: none;
+}
+

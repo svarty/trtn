@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+
+
+
+
+<div class="ui center aligned container">
+    <h1 > Lista teretana </h1>
+    <div class="space-small"></div>
+</div>
+
+
+<div class="ui container">
+
+    <div class="ui three column stackable grid">
+        <% gyms.forEach(function (gym){  %>
+        <div class="column">
+            <div class="ui raised segment">
+                <div class="ui inverted segment">
+                    <div class="ui center aligned container">
+                        <div class="ui huge inverted header"> <%= gym.name %> </div>
+                         <!-- <div class="ui huge inverted header"> // gym.name.toUpperCase() %> </div>  ODJEDNOM PRESTADE DA RADI-->
+                    </div>
+                </div>
+                <img class="ui centered rounded image" src="/images/fitness-icon.png" alt="image">
+
+                <div class="description">
+                    <div class="space-small"></div>
+                    <p> <span> <i class="call icon"></i> Broj telefona: </span><%= gym.phone %> </p>
+                    <p> <span> <i class="map signs icon"></i> Ulica i broj: </span> <%= gym.street%> <%= gym.area %> </p>
+                    <p> <span> <i class="marker icon"></i> Grad: </span><%= gym.city %> </p>
+                    <div class="space-small"></div>
+                </div>
+
+
+                <a class="ui orange basic button" href="/index/<%= gym._id %>"> Detaljnije </a>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <% }); %>
+
+    </div>
+
+
+</div>
+
+
+
+<% include ../partials/footer %>
